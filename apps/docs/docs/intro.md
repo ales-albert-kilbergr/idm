@@ -2,32 +2,41 @@
 sidebar_position: 1
 ---
 
-# Tutorial Intro
+# Identity Management (IDM)
 
-Let's discover **Docusaurus in less than 5 minutes**.
+**IDM** is a service to authenticate (only) a user and associate him with an identity.
 
-## Getting Started
+**IDM** is not referring to permissions, roles manangement nor to any kind of authorization.
 
-Get started by **creating a new site**.
+## Features
 
-Or **try Docusaurus immediately** with **[docusaurus.new](https://docusaurus.new)**.
+### Setup new identity
 
-## Generate a new site
+An identity is supposed to contain basic sets of informations about a user.
 
-Generate a new Docusaurus site using the **classic template**:
+### Authenticate via password and email
 
-```shell
-nx generate @nx-plus/docusaurus:app my-app
-```
+### Recover forgotten password
 
-## Start your site
+### Identify via email
 
-Run the development server:
+## Roadmap
 
-```shell
-nx serve my-app
-```
+### MVP
 
-Your site starts at `http://localhost:3000`.
+- authenticate user by password and email
+- help user to recover forgotten password
+- allow user to create new identity
+- verify that identity via email.
+- issue a jwt access token upon succesfull authentication.
+- sends user emails
+- implements oAuth with hardcoded application api keys (Support one application only based on env variables)
+- logout process
+- forgotting process
 
-Open `docs/intro.md` and edit some lines: the site **reloads automatically** and displays your changes.
+### Backlog
+
+- magic links, paswordless authentication
+- allow to register applications with api keys for oAuth/openId connect (Simple by hardcoded api authorization managed by admins)
+
+### Monorepo or
