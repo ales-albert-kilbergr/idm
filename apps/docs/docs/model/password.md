@@ -27,10 +27,3 @@ We limit a password maximum length to **64 bytes**.
   first.
 
 [denial-of-service]: https://www.acunetix.com/vulnerabilities/web/long-password-denial-of-service/
-
-- expiration
-- minimum length
-- character constrains
-  - minimum count of uppercase letters
-  - minimum count of lowercase letters
-  - minimum count of special characters

@@ -8,6 +8,10 @@ sidebar_position: 1
 
 **IDM** is not referring to permissions, roles manangement nor to any kind of authorization.
 
+## Authentication
+
+IDM will implement more
+
 ## Features
 
 ### Setup new identity
@@ -38,5 +42,3 @@ An identity is supposed to contain basic sets of informations about a user.
 
 - magic links, paswordless authentication
 - allow to register applications with api keys for oAuth/openId connect (Simple by hardcoded api authorization managed by admins)
-
-### Monorepo or

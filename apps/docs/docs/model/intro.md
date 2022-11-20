@@ -17,18 +17,15 @@ classDiagram
 
   class IdentityProfile {
     +string fullaname
-    +string identifier
-    +IdentifierType identifierType
     +email? email
     +string? phoneNumber
+    +url? avatarUrl
   }
 
   class IdentityPassword {
     +string passwordHash
-    +number entropy
     +Date createdAt
     +Date? updatedAt
-    +Date? expiresAt
   }
 
   Identity "1" --> "1" IdentityProfile
