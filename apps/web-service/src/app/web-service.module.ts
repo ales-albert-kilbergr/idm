@@ -1,8 +1,6 @@
 import { Module } from '@nestjs/common';
 import { TerminusModule } from '@nestjs/terminus';
 import { WinstonModule } from 'nest-winston';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
 import { HealthCheckController } from './healthcheck.controller';
 import {
   CONFIG_MODULE_ROOT_IMPORT,
@@ -15,7 +13,6 @@ import {
     WinstonModule.forRootAsync(resolveAsyncConfig('winstonConfig')),
     TerminusModule,
   ],
-  controllers: [AppController, HealthCheckController],
-  providers: [AppService],
+  controllers: [HealthCheckController],
 })
-export class AppModule {}
+export class IDMWebServiceModule {}
