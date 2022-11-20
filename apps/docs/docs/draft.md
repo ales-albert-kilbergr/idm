@@ -11,9 +11,11 @@ sidebar_label: 'Draft'
     - [OTP in SMS](#otp-in-sms)
     - [OTP in email](#otp-in-email)
     - [Magic link](#magic-link)
+  - [CSRF protection](#csrf-protection)
   - [UserInfo](#userinfo)
   - [Model](#model)
   - [Processes](#processes)
+  - [Infrastructure](#infrastructure)
 
 ## Authentication
 
@@ -98,6 +100,8 @@ classDiagram
   }
 ```
 
+## CSRF protection
+
 ## UserInfo
 
 ```mermaid
@@ -150,3 +154,12 @@ classDiagram
 ```
 
 ## Processes
+
+## Infrastructure
+
+There will be a public rest API to cover authentication as well a user registration
+and password recovery process.
+
+There will be authorized graphql API to change user account informations
+
+There will be authorized rest API to request user info in M2M communication
