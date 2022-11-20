@@ -1,0 +1,36 @@
+# This docker compose makes use of unofficial images
+# due to confluent only offering linux/amd arch images and not multi-platform.
+# As soon as official multi-platform images are out, use them here.
+# More info: https://eb7team.atlassian.net/browse/AP-695
+
+---
+version: '3'
+services:
+  idm-web-service:
+    container_name: idm-web-service
+    image: idm-web-service:1.0.0
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    command: yarn nx serve web-service --host 0.0.0.0
+    ports:
+      - 3332:3332
+    environment:
+      - NODE_ENV=development
+      - PORT=3332
+      - LOG_LEVEL=debug
+      - FORCE_COLOR=3
+      - COLOR=true
+      - DEBUG_COLORS=true
+      - TERM=xterm-256color
+      - COLORTERM=truecolor
+    volumes:
+      - ./apps/:/usr/src/app/apps/
+      - ./libs/:/usr/src/app/libs
+      - ./tools/:/usr/src/app/tools/
+      - ./node_modules:/usr/src/app/node_modules
+      - ./tsconfig.base.json:/usr/src/app/tsconfig.base.json
+      - ./workspace.json:/usr/workspace.json
+      - ./nx.json:/usr/nx.json
+      - ./package.json:/usr/package.json
+    tty: true
