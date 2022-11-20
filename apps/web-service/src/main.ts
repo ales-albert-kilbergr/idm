@@ -9,7 +9,7 @@ import { ConfigService } from '@nestjs/config';
 import { WINSTON_MODULE_NEST_PROVIDER } from 'nest-winston';
 import { AppModule } from './app/app.module';
 import { IDMConfigService } from './config';
-import * as chalk from 'chalk';
+import { colorizeUrl } from '@idm/node-logger-utils';
 
 async function bootstrap() {
   const logger = new Logger('bootstrap');
@@ -26,7 +26,7 @@ async function bootstrap() {
   await app.listen(config.get('PORT'));
   logger.log(
     `Application is running on: ` +
-      chalk`{cyan http://localhost:${config.get('PORT')}/${globalPrefix}}`
+      colorizeUrl(`http://localhost:${config.get('PORT')}/${globalPrefix}}`)
   );
 }
 
