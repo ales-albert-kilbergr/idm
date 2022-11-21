@@ -16,6 +16,7 @@ sidebar_label: 'Draft'
   - [Model](#model)
   - [Processes](#processes)
   - [Infrastructure](#infrastructure)
+  - [Public api structure](#public-api-structure)
 
 ## Authentication
 
@@ -163,3 +164,31 @@ and password recovery process.
 There will be authorized graphql API to change user account informations
 
 There will be authorized rest API to request user info in M2M communication
+
+## Public api structure
+
+- **SignUp**
+  - `POST: api/signup/identify`: accept an email as identifier and send
+    a verification OTP
+  - `POST: api/signup/verify`: accept the verification OTP, verify it and sends back
+    OPT for identity creation
+  - `POST: api/signup/create`: creates an identity with list of authentication methods.
+- **SignIn**
+  - `POST: api/signin/identify`: accepts an identifier.
+  - `POST: api/signin/verify/password`
+  - `POST: api/signin/verify/email-otp`
+  - `POST: api/signin/verify/magic-link`
+- **Recovery**
+  - `POST: api/recovery/identify`:
+  - `POST: api/recovery/verify`
+
+**How to verify auth methods based on otp, (phone number, authenticatior...)**
+
+We will organize the `public-rest-api` module into:
+
+- `public-rest-api`
+  - `config`
+  - `sign-up`
+  - `sign-in`
+  - `recovery`
+  - ...

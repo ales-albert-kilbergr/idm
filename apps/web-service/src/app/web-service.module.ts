@@ -1,3 +1,4 @@
+import { PublicRestApiModule } from '@idm/public-rest-api';
 import { Module } from '@nestjs/common';
 import { TerminusModule } from '@nestjs/terminus';
 import { WinstonModule } from 'nest-winston';
@@ -13,6 +14,7 @@ import {
     CONFIG_MODULE_ROOT_IMPORT, //
     WinstonModule.forRootAsync(resolveAsyncConfig('winston')),
     TerminusModule,
+    PublicRestApiModule.forRootAsync(resolveAsyncConfig('publicRestApi')),
   ],
   controllers: [
     HealthCheckController, //

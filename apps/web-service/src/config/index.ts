@@ -1,3 +1,4 @@
+import { PublicRestApiConfig } from '@idm/public-rest-api';
 import {
   ConfigModule,
   ConfigService
@@ -8,12 +9,14 @@ import {
   appConfig,
   IAppConfig
 } from './configs/app.config';
+import { publicRestApiConfig } from './configs/public-rest-api';
 import { winstonConfig } from './configs/winston.config';
 
 export interface IIDConfig {
   PORT: number;
   LOG_LEVEL: 'info' | 'error' | 'debug' | 'warn';
   winston: WinstonModuleOptions;
+  publicRestApi: PublicRestApiConfig;
   app: IAppConfig;
 }
 
@@ -33,6 +36,7 @@ export const CONFIG_MODULE_ROOT_IMPORT = ConfigModule.forRoot({
   load: [
     winstonConfig, //
     appConfig,
+    publicRestApiConfig,
   ],
 });
 
