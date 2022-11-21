@@ -23,14 +23,21 @@ gantt
 title      A IDM project gantt
 dateFormat YYY-MM-DD
 
-section MVP
-Generate empty application        :active, 2022-11-20,2h
-Healthcheck basics                :2h
-Logging basics                    :2h
-Configuration basics              :3h
-Swagger module basics             :1h
-Root controller basics            :1h
-Basic web service                 :milestone, 2022-11-28, 0d
+section MVP I.
+Basic web service                 :milestone, 2022-11-20, 0d
+Generate empty application        :done,      2022-11-20,2h
+Healthcheck basics                :done,      2022-11-21,1h
+Logging basics                    :done,      2022-11-21,1h
+Configuration basics              :done,      2022-11-21,1h
+Swagger module basics             :done,      2022-11-21,0.5h
+Root controller basics            :done,      2022-11-21,0.5h
+Dockerize                         :done,      2022-11-21,3h
+
+section MVP II Public API.
+Public api basic                  :milestone, 2022-11-21, 0d
+Init empty public api module      :active,    2022-11-21,3h
+Setup api endpoints structure     :           2022-11-22,3h
+Public api sign in                :milestone, 2022-11-24, 0d
 
 ```
 
