@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 
 echo "[Build] Build idm-web-service";
-
+# Skip yarn install if needed
 skipInstall=false
 
 while [ $# -gt 0 ]; do
@@ -20,17 +20,13 @@ else
   echo "[BUILD] skip install"
 fi
 
-
+# Cleanup previous build if exists
 rm -rf ./dist/apps/web-service
-
+# Build an application from existing node_modules (should be cached)
 yarn nx build web-service
 
 cd ./dist/apps/web-service
 
-pwd
-
 docker build . -t kilbergr/idm-web-service
 
 echo "[BUILD] done"
-
-#yarn install

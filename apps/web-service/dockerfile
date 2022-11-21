@@ -7,9 +7,7 @@ COPY . .
 RUN yarn install --production --network-timeout 1000000000 --ignore-optional --non-interactive --silent
 
 RUN ls -la
-ENV NODE_ENV=development
 ENV PORT=8080
-ENV LOG_LEVEL=debug
 
 EXPOSE 8080
 CMD ["node", "--experimental-report", "--expose-gc", "--stack-trace-limit=50", "--enable-source-maps", "main"]
