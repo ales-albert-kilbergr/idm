@@ -19,7 +19,7 @@ function parseStack(stack = '') {
   return chalk`{dim ${stack}}`;
 }
 
-export const winstonConfig = registerAs('winstonConfig', () => {
+export const winstonConfig = registerAs('winston', () => {
   const config: WinstonModuleOptions = {
     defaultMeta: { label: 'IDM Api' },
   };

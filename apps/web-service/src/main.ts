@@ -35,7 +35,7 @@ async function bootstrap() {
     app,
     SwaggerModule.createDocument(
       app,
-      new DocumentBuilder().setTitle('IDM web service').build()
+      new DocumentBuilder().setTitle(config.get('app').name).build()
     )
   );
 

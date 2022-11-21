@@ -1,12 +1,20 @@
-import { ConfigModule, ConfigService } from '@nestjs/config';
+import {
+  ConfigModule,
+  ConfigService
+} from '@nestjs/config';
 import * as Joi from 'joi';
-import { winstonConfig } from './configs/winston.config';
 import { WinstonModuleOptions } from 'nest-winston';
+import {
+  appConfig,
+  IAppConfig
+} from './configs/app.config';
+import { winstonConfig } from './configs/winston.config';
 
 export interface IIDConfig {
   PORT: number;
   LOG_LEVEL: 'info' | 'error' | 'debug' | 'warn';
-  winstonConfig: WinstonModuleOptions;
+  winston: WinstonModuleOptions;
+  app: IAppConfig;
 }
 
 export type IDMConfigService = ConfigService<IIDConfig>;
@@ -22,7 +30,10 @@ export const CONFIG_MODULE_ROOT_IMPORT = ConfigModule.forRoot({
       .valid('info', 'error', 'debug', 'warn')
       .default('info'),
   }),
-  load: [winstonConfig],
+  load: [
+    winstonConfig, //
+    appConfig,
+  ],
 });
 
 export function resolveAsyncConfig(key: keyof IIDConfig) {

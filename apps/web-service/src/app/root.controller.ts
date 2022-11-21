@@ -2,15 +2,18 @@ import {
   Controller,
   Get
 } from '@nestjs/common';
+import { ConfigService } from '@nestjs/config';
+import { IIDConfig } from '../config';
 
 @Controller()
 export class IDMRootController {
+  constructor(private config: ConfigService<IIDConfig>) {}
+
   @Get('/')
   public resolve() {
     return {
-      name: 'Identity management',
-      // Dummy value before we solve versionning per app
-      version: '1.1.1',
+      name: this.config.get('app').name,
+      version: this.config.get('app').version,
     };
   }
 }

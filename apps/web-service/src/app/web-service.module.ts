@@ -11,7 +11,7 @@ import {
 @Module({
   imports: [
     CONFIG_MODULE_ROOT_IMPORT, //
-    WinstonModule.forRootAsync(resolveAsyncConfig('winstonConfig')),
+    WinstonModule.forRootAsync(resolveAsyncConfig('winston')),
     TerminusModule,
   ],
   controllers: [
