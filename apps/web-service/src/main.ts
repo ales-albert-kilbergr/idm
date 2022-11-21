@@ -17,7 +17,12 @@ import { IDMConfigService } from './config';
 
 async function bootstrap() {
   const logger = new Logger('bootstrap');
-  const app = await NestFactory.create(IDMWebServiceModule);
+  const app = await NestFactory.create(IDMWebServiceModule, {
+    // Do not buffer logs. If there were any timeouting problem during bootstrap
+    // phase, we wouldn`t see any logs for few minutes. Typical example is
+    // a connection timout to DB.
+    bufferLogs: false,
+  });
 
   const config = await app.resolve<IDMConfigService>(ConfigService);
   // Inject custom logger library, which handle Dev/Prod logging
