@@ -15,7 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@idm/node-logger-utils": ["libs/node-logger-utils/src/index.ts"]
+      "@idm/node-logger-utils": ["libs/node-logger-utils/src/index.ts"],
+      "@idm/public-rest-api": ["libs/public-rest-api/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

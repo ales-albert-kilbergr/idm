@@ -1,0 +1,61 @@
+{
+	"info": {
+		"_postman_id": "71584692-bc21-455f-b02c-e3a57bb2927e",
+		"name": "kilbergr/idm",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "3427624"
+	},
+	"item": [
+		{
+			"name": "signin",
+			"item": [
+				{
+					"name": "identify",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}/v1/signin/identify",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"v1",
+								"signin",
+								"identify"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "HOST",
+			"value": "http://localhost:3332",
+			"type": "string"
+		}
+	]
+}

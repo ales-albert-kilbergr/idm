@@ -4,7 +4,10 @@
  */
 
 import { colorizeUrl } from '@idm/node-logger-utils';
-import { Logger } from '@nestjs/common';
+import {
+  Logger,
+  VersioningType
+} from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { NestFactory } from '@nestjs/core';
 import {
@@ -22,6 +25,12 @@ async function bootstrap() {
     // phase, we wouldn`t see any logs for few minutes. Typical example is
     // a connection timout to DB.
     bufferLogs: false,
+  });
+
+  // Enable api versioning by uri like [host]/v1/[path]
+  // see https://docs.nestjs.com/techniques/versioning
+  app.enableVersioning({
+    type: VersioningType.URI,
   });
 
   const config = await app.resolve<IDMConfigService>(ConfigService);
