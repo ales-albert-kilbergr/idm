@@ -15,6 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@idm/nest-csrf": ["libs/nest-csrf/src/index.ts"],
       "@idm/node-logger-utils": ["libs/node-logger-utils/src/index.ts"],
       "@idm/public-rest-api": ["libs/public-rest-api/src/index.ts"]
     }
