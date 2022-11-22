@@ -15,6 +15,7 @@ import { winstonConfig } from './configs/winston.config';
 export interface IIDConfig {
   PORT: number;
   LOG_LEVEL: 'info' | 'error' | 'debug' | 'warn';
+  COOKIE_SECRET: string;
   winston: WinstonModuleOptions;
   publicRestApi: PublicRestApiConfig;
   app: IAppConfig;
@@ -32,6 +33,7 @@ export const CONFIG_MODULE_ROOT_IMPORT = ConfigModule.forRoot({
     LOG_LEVEL: Joi.string()
       .valid('info', 'error', 'debug', 'warn')
       .default('info'),
+    COOKIE_SECRET: Joi.string().required(),
   }),
   load: [
     winstonConfig, //

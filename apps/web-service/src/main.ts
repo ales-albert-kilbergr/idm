@@ -1,8 +1,3 @@
-/**
- * This is not a production server yet!
- * This is only a minimal backend to get started.
- */
-
 import { colorizeUrl } from '@idm/node-logger-utils';
 import {
   Logger,
@@ -14,6 +9,7 @@ import {
   DocumentBuilder,
   SwaggerModule
 } from '@nestjs/swagger';
+import * as cookieParser from 'cookie-parser';
 import { WINSTON_MODULE_NEST_PROVIDER } from 'nest-winston';
 import { IDMWebServiceModule } from './app/web-service.module';
 import { IDMConfigService } from './config';
@@ -47,6 +43,10 @@ async function bootstrap() {
       new DocumentBuilder().setTitle(config.get('app').name).build()
     )
   );
+
+  // Enable cookie processor middleware
+  // see https://docs.nestjs.com/techniques/cookies#use-with-express-default
+  app.use(cookieParser(config.get('COOKIE_SECRET')));
 
   await app.listen(config.get('PORT'));
   logger.log(
