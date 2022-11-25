@@ -1,1 +1,1 @@
-export * from './lib/nest-csrf.module';
+export * from './lib';

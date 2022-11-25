@@ -1,3 +1,4 @@
+import { CsrfConfig } from '@idm/nest-csrf';
 import { PublicRestApiConfig } from '@idm/public-rest-api';
 import {
   ConfigModule,
@@ -9,6 +10,7 @@ import {
   appConfig,
   IAppConfig
 } from './configs/app.config';
+import { csrfConfig } from './configs/csrf.config';
 import { publicRestApiConfig } from './configs/public-rest-api';
 import { winstonConfig } from './configs/winston.config';
 
@@ -19,6 +21,7 @@ export interface IIDConfig {
   winston: WinstonModuleOptions;
   publicRestApi: PublicRestApiConfig;
   app: IAppConfig;
+  csrf: CsrfConfig;
 }
 
 export type IDMConfigService = ConfigService<IIDConfig>;
@@ -39,6 +42,7 @@ export const CONFIG_MODULE_ROOT_IMPORT = ConfigModule.forRoot({
     winstonConfig, //
     appConfig,
     publicRestApiConfig,
+    csrfConfig,
   ],
 });
 
