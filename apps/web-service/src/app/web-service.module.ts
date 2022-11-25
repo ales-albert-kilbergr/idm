@@ -1,3 +1,4 @@
+import { NestCsrfModule } from '@idm/nest-csrf';
 import { PublicRestApiModule } from '@idm/public-rest-api';
 import { Module } from '@nestjs/common';
 import { TerminusModule } from '@nestjs/terminus';
@@ -15,6 +16,7 @@ import {
     WinstonModule.forRootAsync(resolveAsyncConfig('winston')),
     TerminusModule,
     PublicRestApiModule.forRootAsync(resolveAsyncConfig('publicRestApi')),
+    NestCsrfModule.forRootAsync(resolveAsyncConfig('csrf')),
   ],
   controllers: [
     HealthCheckController, //

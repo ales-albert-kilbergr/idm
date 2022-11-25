@@ -2,6 +2,7 @@
   "version": 2,
   "projects": {
     "docs": "apps/docs",
+    "nest-csrf": "libs/nest-csrf",
     "node-logger-utils": "libs/node-logger-utils",
     "public-rest-api": "libs/public-rest-api",
     "web-service": "apps/web-service"

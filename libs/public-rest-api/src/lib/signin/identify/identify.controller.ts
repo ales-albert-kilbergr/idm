@@ -1,3 +1,4 @@
+import { SetCsrfCookieSecret } from '@idm/nest-csrf';
 import {
   Controller,
   Post,
@@ -7,6 +8,7 @@ import {
 @Controller()
 export class SigninIdentifyController {
   @Version('1')
+  @SetCsrfCookieSecret()
   @Post('signin/identify')
   public resolveV1() {
     return { ok: 'ok' };

@@ -19,6 +19,7 @@ services:
       - NODE_ENV=development
       - PORT=3332
       - LOG_LEVEL=debug
+      - COOKIE_SECRET="Some secret"
     volumes:
       - ./apps/:/usr/src/app/apps/
       - ./libs/:/usr/src/app/libs
